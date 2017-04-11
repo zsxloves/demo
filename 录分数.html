@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="one" ng-cloak>
+    <h1>输入考试成绩</h1>
+    <input type="text" ng-model="name">
+    <select ng-model="kemu">
+    	<option value="语文">语文</option>
+    	<option value="数学">数学</option>
+    	<option value="英语">英语</option>
+    </select>
+    <input type="text" ng-model="score">
+    <button ng-click="add()">添加</button>
+
+    <table style="boder:1px solid red;" rules="all">
+    	<tr><td>序号</td>
+    	<td>名字</td>
+    	<td>科目</td>
+    	<td>分数</td></tr>
+    	<tr ng-repeat="item in todos track by $index">
+    	<td>{{$index}}</td>
+    	<td>{{item.name}}</td>
+    	<td>{{item.kemu}}</td>
+    	<td>{{item.score}}</td>
+    </tr>
+    </table>
+   
+
+
+    <script>
+    	angular.module("app",[]).controller("one",["$scope",function($scope){
+    		$scope.todos=[];
+    		$scope.kemu="语文";
+    		$scope.add=function(){
+    			$scope.todos.push({
+    				name:$scope.name,
+    				kemu:$scope.kemu,
+    				score:$scope.score
+    			})
+    		}
+    	}])
+    </script>
+
+	
+</body>
+</html>

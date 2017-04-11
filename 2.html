@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="two">
+		<div ng-repeat="item in res.data">
+			<img ng-src="{{item.image}}" alt="">
+			<h3>{{item.title}}</h3>
+			<p>{{item.decription}}</p>
+		</div>
+	</div>
+
+	<script>
+		angular.module("app",[]).controller("two",function($scope){
+			$scope.res={
+				"code":0,
+				"data":[
+				{
+					"title":"adda",
+					"image":"imgs/aster.png",
+					"decription":"dad"
+
+				},
+				{}
+				]
+			}
+		})
+	</script>
+</body>
+</html>

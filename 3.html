@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+     <div ng-controller="one">
+     	<h1>看过的电影</h1>
+     	<table style="border:1px solid red;text-align: center;width:300px;" rules="all">
+     		<tr>
+     		<td>序号</td>
+     		<td>电影名</td>
+     		<td>是否看过</td>
+     		<td>勾选</td>
+     		</tr>
+     		<tr ng-repeat="item in todos">
+     		<td>{{$index}}</td>
+     		<td>{{item.movies}}</td>
+     		<td>{{item.watch}}</td>
+     		<td><input type="checkbox" ng-model="item.watch">
+     		</td>
+     		</tr>
+     	</table>
+     </div>
+	<script>
+		angular.module("app",[]).controller('one', ['$scope', function($scope){
+			$scope.todos=[
+			{movies:"阿凡达",watch:false},
+			{movies:"阿凡达",watch:false,plan:""},
+			{movies:"阿凡达",watch:false,plan:""},
+			{movies:"阿凡达",watch:false,plan:""},
+			{movies:"阿凡达",watch:true,plan:""}
+			]
+		}])
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="set">
+	<div>{{date|date:"yy MMM dd a hh mm ss"}}</div>
+
+
+	<script>
+		angular.module("app",[])
+		   .controller("set",function($scope,$interval,$timeout){
+		   	$interval(f,1000);
+		   	$timeout(f,2000);
+		   	function f(){
+		   		$scope.date=new Date();
+		   	}
+		   })
+	</script>
+</body>
+</html>

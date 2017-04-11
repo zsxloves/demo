@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="first">
+
+
+
+    <ul><li ng-repeat="item in items">我去过:{{item}}!</li></ul>
+	<ul>
+		<li>浙江</li>
+		<li>江西</li>
+		<li>广东</li>
+		<li>上海</li>
+	</ul>
+</div>
+
+<script>
+	angular.module('app', []).controller('first',function($scope){
+		$scope.items=["浙江","江西","广东","上海"];
+	});
+</script>
+</body>
+</html>

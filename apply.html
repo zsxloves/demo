@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="set">
+	<div>
+		<div>{{clickcount}}</div>
+		<input type="checkbox" ng-model="buttonEnable">
+		<button ng-click="click()" ng-disabled="buttonEnable">计数器</button>
+		<button ng-click="clickcount=clickcount+1">加</button>
+	</div>
+
+
+	<script>
+		angular.module("app",[])
+		.controller("set",["$scope",function($scope){
+			$scope.clickcount=0;
+			$scope.buttonEnable=false;
+			$scope.click=function(){
+				$scope.clickcount++;
+			}
+		}])
+	</script>
+</body>
+</html>

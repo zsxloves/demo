@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<style>
+		tr.red{background-color:red; }
+		tr.blue{background-color:blue; }
+		tr.green{background-color:green; }
+	</style>
+</head>
+<body ng-controller="set" ng-cloak>
+      <table style="border:1px solid red;" rules="all">
+      	<tr><td colspan="3">今天要做的事情</td></tr>
+      	<tr><td>序号</td><td>正在做的是</td><td>昨晚了没有</td></tr>
+      	<tr ng-repeat="todo in todo" ng-class="set.rows">
+      		<td>{{$index+1}}</td>
+      		<td>{{todo.do}}</td>
+      		<td ng-style="{'background-color':set.colums}">{{todo.tai}}</td>
+      	</tr>
+      </table>
+      <div ng-repeat="(row,value) in set">
+         <h4>{{row}}</h4>
+      	<div ng-repeat="color in color">
+      	  <input type="radio" ng-model="set[row]" value="{{color}}">{{color}}
+        </div>
+      </div>
+
+
+	<script>
+	   angular.module("app",[])
+	     .controller("set",["$scope",function($scope){
+	     	$scope.todo=[{do:"看书",tai:false},{do:"画画",tai:false},{do:"都活该不",tai:false},{do:"的话那",tai:false}];
+	     	$scope.color=["red","blue","green"];
+	     	$scope.set={rows:"red",colums:"green"};
+	     }])
+	</script>
+</body>
+</html>

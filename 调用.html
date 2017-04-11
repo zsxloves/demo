@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="set">
+      <div>
+      	<h3>{{name}}</h3>
+      	<h3>{{http}}</h3>
+      	<h3>{{msg}}</h3>
+      	<h3>{{data[msg]}}</h3>
+      	<h3>{{data['msg']}}</h3>
+      	<h3>{{user.name}}</h3>
+      </div>
+	<script>
+	   angular.module("app",[])
+	     .value("name","baidu")
+	     .constant('http', "www.baidu.com")
+	     .factory('data',function(){
+	     	return{
+	     		msg:"dream",setMsg:function(){
+	     			this.msg="Dream";
+	     		},
+	     		'dream':"666"
+	     	};
+	     })
+	     .service("user",function(){
+	     	this.name="lisi";
+	     })
+	       .controller("set",function($scope,name,http,data,user){
+	       	$scope.name=name;
+	       	$scope.http=http;
+	       	$scope.data=data;
+	        $scope.user=user;
+	       	$scope.data.setMsg();
+	       	$scope.msg='dream';
+	       })
+	</script>
+</body>
+</html>
